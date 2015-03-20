@@ -122,7 +122,7 @@ protected:
     u8 Pop()          { return ram->Read((0x01 << 8) | ++SP); }
 
     void SetZero(int x)       { if (x == 0)           { SetFlag(Z); } else { ClearFlag(Z); } }
-    void SetNegative(int x)   { if ((x && 0x80) != 0) { SetFlag(N); } else { ClearFlag(N); } }
+    void SetNegative(int x)   { if ((x & 0x80) != 0) { SetFlag(N); } else { ClearFlag(N); } }
     void SetCarry(bool x)     { if (x)                { SetFlag(C); } else { ClearFlag(C); } }
     void SetOverflow(bool x)  { if (x)                { SetFlag(V); } else { ClearFlag(V); } }
     void SetInterrupt(bool x) { if (x)                { SetFlag(I); } else { ClearFlag(I); } }
